@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <h1>Article</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ article.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ article.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ article.prix }}</td>
+            </tr>
+            <tr>
+                <th>Date_reserv</th>
+                <td>{{ article.dateReserv ? article.dateReserv|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date_retour</th>
+                <td>{{ article.dateRetour ? article.dateRetour|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ article.status }}</td>
+            </tr>
+            <tr>
+                <th>Lieu_achat</th>
+                <td>{{ article.lieuAchat }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ article.reference }}</td>
+            </tr>
+            <tr>
+                <th>Date_achat</th>
+                <td>{{ article.dateAchat ? article.dateAchat|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Fin_garantie</th>
+                <td>{{ article.finGarantie ? article.finGarantie|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Conseil_entretien</th>
+                <td>{{ article.conseilEntretien }}</td>
+            </tr>
+            <tr>
+                <th>Photo_ticket</th>
+                <td>{{ article.photoTicket }}</td>
+            </tr>
+            <tr>
+                <th>Manuel_utilisation</th>
+                <td>{{ article.manuelUtilisation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_index') }}">back to list</a>
+
+    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+
+    {{ include('article/_delete_form.html.twig') }}
+{% endblock %}
